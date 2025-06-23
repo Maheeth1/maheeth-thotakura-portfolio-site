@@ -1,55 +1,11 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission here
-    setFormData({ name: '', email: '', message: '' });
-  };
-
-  const socialLinks = [
-    {
-      icon: FaEnvelope,
-      name: 'Email',
-      value: 'thotakuramaheeth@gmail.com',
-      href: 'mailto:thotakuramaheeth@gmail.com',
-      color: 'bg-red-500 hover:bg-red-600'
-    },
-    {
-      icon: FaGithub,
-      name: 'GitHub',
-      value: 'Maheeth1',
-      href: 'https://github.com/Maheeth1',
-      color: 'bg-gray-800 hover:bg-gray-900'
-    },
-    {
-      icon: FaLinkedin,
-      name: 'LinkedIn',
-      value: 'maheeth-thotakura',
-      href: 'https://linkedin.com/in/maheeth-thotakura',
-      color: 'bg-blue-600 hover:bg-blue-700'
-    }
-  ];
-
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -58,120 +14,108 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Get In Touch</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-4"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Let's connect and discuss opportunities, collaborations, or just have a chat about technology!
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Get In Touch</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-gray-50 p-8 rounded-2xl shadow-lg"
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Send a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Contact Information</h3>
+            <div className="space-y-6">
+              <motion.a
+                href="mailto:thotakuramaheeth@gmail.com"
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <FaEnvelope className="text-blue-600 text-xl" />
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white">Email</p>
+                  <p className="text-gray-600 dark:text-gray-300">thotakuramaheeth@gmail.com</p>
+                </div>
+              </motion.a>
+
+              <motion.a
+                href="https://github.com/Maheeth1"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <FaGithub className="text-gray-800 dark:text-white text-xl" />
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white">GitHub</p>
+                  <p className="text-gray-600 dark:text-gray-300">Maheeth1</p>
+                </div>
+              </motion.a>
+
+              <motion.a
+                href="https://linkedin.com/in/maheeth-thotakura"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <FaLinkedin className="text-blue-600 text-xl" />
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white">LinkedIn</p>
+                  <p className="text-gray-600 dark:text-gray-300">maheeth-thotakura</p>
+                </div>
+              </motion.a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <form className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Your Name
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Name
                 </label>
                 <input
                   type="text"
                   id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                  placeholder="Enter your name"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  placeholder="Your Name"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Email
                 </label>
                 <input
                   type="email"
                   id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                  placeholder="Enter your email"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  placeholder="your.email@example.com"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Message
                 </label>
                 <textarea
                   id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
                   rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 resize-none"
-                  placeholder="Tell me about your project or just say hello!"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  placeholder="Your message..."
                 ></textarea>
               </div>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200"
+                className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-medium"
               >
-                <FaPaperPlane />
                 Send Message
-              </motion.button>
+              </button>
             </form>
-          </motion.div>
-
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Let's Connect</h3>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                I'm always open to discussing new opportunities, interesting projects, 
-                or just connecting with fellow developers. Feel free to reach out through 
-                any of the channels below!
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              {socialLinks.map((link, index) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.02, x: 5 }}
-                  className={`flex items-center gap-4 p-4 rounded-xl text-white transition-all duration-300 ${link.color}`}
-                >
-                  <link.icon className="text-xl" />
-                  <div>
-                    <div className="font-medium">{link.name}</div>
-                    <div className="text-sm opacity-90">{link.value}</div>
-                  </div>
-                </motion.a>
-              ))}
-            </div>
           </motion.div>
         </div>
       </div>

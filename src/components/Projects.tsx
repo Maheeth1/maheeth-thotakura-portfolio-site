@@ -11,7 +11,7 @@ const Projects = () => {
       tech: ['React', 'JavaScript', 'React Player', 'CSS3'],
       liveDemo: '#',
       github: '#',
-      image: 'https://images.unsplash.com/photo-1489599904593-130ba1a2c62c?w=500&h=300&fit=crop&crop=center'
+      image: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=500&h=300&fit=crop&crop=center'
     },
     {
       title: 'WebSocket Video Streaming',
@@ -25,12 +25,12 @@ const Projects = () => {
       description: 'JavaFX desktop game with smooth animations and interactive gameplay mechanics.',
       tech: ['Java', 'JavaFX', 'Animations', 'Desktop'],
       github: '#',
-      image: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=500&h=300&fit=crop&crop=center'
+      image: 'https://images.unsplash.com/photo-1611996575749-79a3a250f948?w=500&h=300&fit=crop&crop=center'
     }
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-50">
+    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -39,7 +39,7 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Featured Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Featured Projects</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
         </motion.div>
 
@@ -52,7 +52,7 @@ const Projects = () => {
               transition={{ delay: index * 0.2, duration: 0.6 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+              className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
             >
               <div className="relative overflow-hidden">
                 <img
@@ -64,14 +64,14 @@ const Projects = () => {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{project.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{project.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium"
+                      className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full font-medium"
                     >
                       {tech}
                     </span>
@@ -81,7 +81,7 @@ const Projects = () => {
                 <div className="flex gap-3">
                   <a
                     href={project.github}
-                    className="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-200 text-sm font-medium"
+                    className="flex items-center gap-2 px-4 py-2 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors duration-200 text-sm font-medium"
                   >
                     <FaGithub /> GitHub
                   </a>
