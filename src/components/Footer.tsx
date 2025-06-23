@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -14,13 +14,15 @@ const Footer = () => {
           className="text-center"
         >
           <div className="mb-8">
-            <h3 className="text-2xl font-bold mb-4">Maheeth Thotakura</h3>
+            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Maheeth Thotakura
+            </h3>
             <p className="text-gray-400 max-w-md mx-auto">
               Full Stack Developer passionate about creating impactful web applications and exploring new technologies.
             </p>
           </div>
 
-          <div className="border-t border-gray-800 pt-8">
+          <div className="border-t border-gray-800 dark:border-gray-700 pt-8">
             <p className="text-gray-400">
               © {new Date().getFullYear()} Maheeth Thotakura. All rights reserved.
             </p>
