@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowDown, FaEnvelope } from 'react-icons/fa';
 import { UserRound } from 'lucide-react';
+import Tilt from "react-parallax-tilt";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -26,9 +27,15 @@ const Hero = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 rounded-full flex items-center justify-center shadow-2xl ring-4 ring-blue-200 dark:ring-blue-800"
+            className="w-64 h-64 mx-auto flex items-center justify-center "
           >
-            <UserRound className="w-16 h-16 text-white" />
+            <Tilt>
+              <img
+                src="/avatar.svg"
+                alt="Avatar"
+                className="w-full h-full object-contain"
+              />
+            </Tilt>
           </motion.div>
 
           {/* Name */}
