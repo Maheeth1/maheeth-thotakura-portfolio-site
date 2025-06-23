@@ -9,22 +9,22 @@ const Projects = () => {
       title: 'FlickNest',
       description: 'React-based movie streaming app with React Player and carousels for seamless video browsing experience.',
       tech: ['React', 'JavaScript', 'React Player', 'CSS3'],
-      liveDemo: '#',
-      github: '#',
+      github: 'https://flicknest.ccbp.tech/',
+      liveDemo: 'https://flicknest.ccbp.tech/',
       image: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=500&h=300&fit=crop&crop=center'
     },
     {
       title: 'WebSocket Video Streaming',
       description: 'Python + OpenCV-based real-time peer video application with live streaming capabilities.',
       tech: ['Python', 'OpenCV', 'WebSocket', 'Real-time'],
-      github: '#',
+      github: 'https://github.com/Maheeth1/WebSocketBasedVideoStreaming',
       image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=300&fit=crop&crop=center'
     },
     {
       title: 'Connect Four Game',
       description: 'JavaFX desktop game with smooth animations and interactive gameplay mechanics.',
       tech: ['Java', 'JavaFX', 'Animations', 'Desktop'],
-      github: '#',
+      github: 'https://github.com/Maheeth1/connectfour',
       image: 'https://images.unsplash.com/photo-1611996575749-79a3a250f948?w=500&h=300&fit=crop&crop=center'
     }
   ];
@@ -82,6 +82,7 @@ const Projects = () => {
                   <a
                     href={project.github}
                     className="flex items-center gap-2 px-4 py-2 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors duration-200 text-sm font-medium"
+                    target="_blank"
                   >
                     <FaGithub /> GitHub
                   </a>
@@ -89,6 +90,7 @@ const Projects = () => {
                     <a
                       href={project.liveDemo}
                       className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-sm font-medium"
+                      target="_blank"
                     >
                       <FaPlay /> Live Demo
                     </a>

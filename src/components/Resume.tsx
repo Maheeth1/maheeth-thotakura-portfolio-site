@@ -27,9 +27,11 @@ const Resume = () => {
         >
           <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-lg text-center">
             <div className="mb-8">
-              <div className="w-full h-96 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-                <p className="text-gray-500 dark:text-gray-400">Resume PDF will be embedded here</p>
-              </div>
+              <iframe
+                src="/resume.pdf" // Make sure resume.pdf is in your /public folder
+                className="w-full h-[1200px] rounded-lg border"
+                title="Resume PDF"
+              ></iframe>
             </div>
             <button className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium mx-auto">
               <FaDownload />
