@@ -1,9 +1,35 @@
-
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    emailjs
+      .sendForm(
+        'service_gmyr4ji',   // replace this
+        'template_lxbgl2e',  // replace this
+        form.current,
+        'KxagtymykdSzGCSm8'    // replace this
+      )
+      .then(
+        (result) => {
+          alert('Message sent successfully!');
+          form.current?.reset();
+        },
+        (error) => {
+          console.error(error.text);
+          alert('Something went wrong. Please try again later.');
+        }
+      );
+  };
+
   return (
     <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,6 +45,7 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -69,13 +96,14 @@ const Contact = () => {
             </div>
           </motion.div>
 
+          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <form className="space-y-6">
+            <form ref={form} onSubmit={sendEmail} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Name
@@ -83,7 +111,9 @@ const Contact = () => {
                 <input
                   type="text"
                   id="name"
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  name="user_name"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                   placeholder="Your Name"
                 />
               </div>
@@ -94,7 +124,9 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  name="user_email"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -104,8 +136,10 @@ const Contact = () => {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                   placeholder="Your message..."
                 ></textarea>
               </div>
