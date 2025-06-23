@@ -65,7 +65,7 @@ const Navbar = () => {
           </div>
           <div className="hidden md:flex items-center space-x-8">
             <div className="flex items-baseline space-x-8">
-              {['Home', 'About', 'Projects', 'Blog', 'Resume', 'Contact'].map((item) => (
+              {['Home', 'About', 'Projects', 'Resume', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
