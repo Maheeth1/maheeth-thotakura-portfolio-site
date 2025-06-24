@@ -24,6 +24,8 @@ const ScrollAnimations = () => {
     };
   }, []);
 
+  const scrollProgress = Math.min((scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100, 100);
+
   return (
     <div className="fixed inset-0 pointer-events-none z-10">
       {/* Mouse Follower */}
@@ -41,8 +43,8 @@ const ScrollAnimations = () => {
         <motion.div
           key={i}
           initial={{ 
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight
+            x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
+            y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800)
           }}
           animate={{
             y: [0, -20, 0],
@@ -78,11 +80,11 @@ const ScrollAnimations = () => {
         />
       </div>
 
-      {/* Scroll Progress Line */}
-      <motion.div
-        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 z-50"
+      {/* Scroll Progress Line - Fixed at top with higher z-index */}
+      <div
+        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 ease-out z-[60]"
         style={{
-          width: `${(scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%`
+          width: `${scrollProgress}%`
         }}
       />
     </div>
