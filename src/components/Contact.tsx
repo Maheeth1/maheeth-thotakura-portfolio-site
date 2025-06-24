@@ -13,10 +13,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        'service_gmyr4ji',   // replace this
-        'template_lxbgl2e',  // replace this
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,   // replaced with env variable
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,  // replaced with env variable
         form.current,
-        'KxagtymykdSzGCSm8'    // replace this
+        import.meta.env.VITE_EMAILJS_USER_ID    // replaced with env variable
       )
       .then(
         (result) => {
