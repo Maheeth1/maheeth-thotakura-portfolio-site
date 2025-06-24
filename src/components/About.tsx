@@ -7,10 +7,16 @@ const About = () => {
   const skills = [
     { name: 'React', icon: Code2, color: 'text-blue-500' },
     { name: 'Node.js', icon: Server, color: 'text-green-500' },
-    { name: 'MongoDB', icon: Database, color: 'text-green-600' },
-    { name: 'REST APIs', icon: Globe, color: 'text-purple-500' },
-    { name: 'Flask/Django', icon: Wrench, color: 'text-red-500' },
-    { name: 'Jenkins', icon: GitBranch, color: 'text-orange-500' }
+    { name: 'Express.js', icon: Code2, color: 'text-yellow-500' },
+    { name: 'MongoDB', icon: Database, color: 'text-green-500' },
+    { name: 'Python', icon: Code2, color: 'text-blue-500' },
+    { name: 'JavaScript', icon: Code2, color: 'text-yellow-500' },
+    { name: 'Git', icon: GitBranch, color: 'text-gray-500' },
+    { name: 'HTML/CSS', icon: Code2, color: 'text-purple-500' },
+    { name: 'Tailwind CSS', icon: Wrench, color: 'text-teal-500' },
+    { name: 'Database Management', icon: Database, color: 'text-orange-500' },
+    { name: 'Google Cloud', icon: Globe, color: 'text-blue-500' },
+    { name: 'REST APIs', icon: Globe, color: 'text-purple-500' }
   ];
 
   return (
@@ -36,14 +42,10 @@ const About = () => {
         >
           <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-              I'm an energetic MERN stack developer with hands-on experience in React, Node.js, and REST APIs. 
-              During my full-stack internship, I worked extensively with Flask, Django, and Jenkins, building 
-              scalable web applications and implementing deployment automation.
+              I’m <span className='text-purple-600 font-semibold'>Maheeth Thotakura</span>, a Full Stack Developer skilled in the MERN stack with a strong focus on building scalable backends and responsive, user-friendly interfaces. My projects include a movie streaming app, a real-time video streaming system using sockets, and interactive web-based games — all designed with performance and clean architecture in mind.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-              I'm passionate about creating impactful web applications and exploring new technologies, 
-              particularly in the realm of AI tools and modern web development frameworks. 
-              Always eager to learn and tackle new challenges in the ever-evolving tech landscape.
+              I'm particularly interested in blending web development with practical AI solutions to automate workflows and enhance user experience. Outside of coding, I enjoy exploring new technologies and working on side projects that push my learning forward.
             </p>
 
             {/* Skills Section */}

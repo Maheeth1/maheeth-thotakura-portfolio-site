@@ -97,7 +97,7 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.8, type: "spring", stiffness: 100 }}
             className="flex justify-center lg:justify-end"
           >
-            <div className="w-80 h-80 lg:w-96 lg:h-96">
+            <div className="w-80 h-80 lg:w-96 lg:h-96 transform -translate-y-16">
               <Tilt>
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-2xl opacity-20 animate-pulse"></div>
