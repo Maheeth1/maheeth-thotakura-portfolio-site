@@ -42,10 +42,15 @@ const About = () => {
         >
           <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-              I’m <span className='text-purple-600 font-semibold'>Maheeth Thotakura</span>, a Full Stack Developer skilled in the MERN stack with a strong focus on building scalable backends and responsive, user-friendly interfaces. My projects include a movie streaming app, a real-time video streaming system using sockets, and interactive web-based games — all designed with performance and clean architecture in mind.
+              I’m <span className='text-purple-600 font-semibold'>Maheeth Thotakura</span>, a Full Stack Developer 
+              skilled in the MERN stack with a strong focus on building scalable backends and responsive, user-friendly interfaces. 
+              My projects include a movie streaming app, a real-time video streaming system using sockets, and interactive 
+              web-based games — all designed with performance and clean architecture in mind.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-              I'm particularly interested in blending web development with practical AI solutions to automate workflows and enhance user experience. Outside of coding, I enjoy exploring new technologies and working on side projects that push my learning forward.
+              I'm particularly interested in blending web development with practical AI solutions to automate workflows and 
+              enhance user experience. Outside of coding, I enjoy exploring new technologies and working on side projects 
+              that push my learning forward.
             </p>
 
             {/* Skills Section */}
