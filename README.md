@@ -35,10 +35,10 @@ npm run dev
 
 Make sure you have Node.js and npm installed on your machine.
 
-Deployment
+## Deployment
 The portfolio can be deployed on platforms like Vercel, Netlify, or GitHub Pages. The site is optimized for production builds using Vite.
 
-Contact
+## Contact
 If you'd like to connect or collaborate:
 
 - Email: thotakuramaheeth@gmail.com
