@@ -27,7 +27,7 @@ This is my personal developer portfolio website, designed to highlight my skills
 To run this project locally:
 
 ```bash
-git clone https://github.com/yourusername/maheeth-thotakura-portfolio-site.git
+git clone https://github.com/Maheeth1/maheeth-thotakura-portfolio-site
 cd maheeth-thotakura-portfolio-site
 npm install
 npm run dev
