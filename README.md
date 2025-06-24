@@ -43,8 +43,8 @@ If you'd like to connect or collaborate:
 
 - Email: thotakuramaheeth@gmail.com
 
-- LinkedIn: linkedin.com/in/maheeththotakura
+- [Linkedin](https://www.linkedin.com/in/maheeth-thotakura)
 
-- GitHub: [github.com/yourusername](https://github.com/Maheeth1)
+- [Github](https://github.com/Maheeth1)
 
 
