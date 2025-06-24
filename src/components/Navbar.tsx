@@ -6,7 +6,12 @@ import { Sun, Moon } from 'lucide-react';
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true); // Start with dark mode
+
+  useEffect(() => {
+    // Set dark mode by default on initial load
+    document.documentElement.classList.add('dark');
+  }, []);
 
   useEffect(() => {
     const controlNavbar = () => {

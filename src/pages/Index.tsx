@@ -7,12 +7,15 @@ import Projects from '../components/Projects';
 import Resume from '../components/Resume';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import LoadingScreen from '../components/LoadingScreen';
+import ScrollAnimations from '../components/ScrollAnimations';
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <LoadingScreen />
+      <ScrollAnimations />
       <Navbar />
-      <div className="pt-16"></div>
       <Hero />
       <About />
       <Projects />
