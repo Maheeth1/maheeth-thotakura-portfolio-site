@@ -4,7 +4,7 @@ This is my personal developer portfolio website, designed to highlight my skills
 
 ## Live Site
 
-[View Portfolio](https://your-live-site-link.com)
+[View Portfolio](https://maheeth-thotakura-portfolio-site.vercel.app/)
 
 ## Tech Stack
 
