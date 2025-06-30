@@ -24,7 +24,7 @@ const Hero = () => {
             transition={{ delay: 0.2, duration: 0.8, type: "spring", stiffness: 100 }}
             className="flex justify-center mb-12"
           >
-            <div className="w-48 h-48 sm:w-56 sm:h-56">
+            <div className="w-48 h-48 sm:w-56 sm:h-56 mb-7">
               <Tilt>
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-xl opacity-20 animate-pulse"></div>
@@ -196,7 +196,7 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.8, type: "spring", stiffness: 100 }}
             className="flex justify-center lg:justify-end"
           >
-            <div className="w-80 h-80 lg:w-96 lg:h-96">
+            <div className="w-80 h-80 lg:w-96 lg:h-96 mb-12 pb-12">
               <Tilt>
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-2xl opacity-20 animate-pulse"></div>
