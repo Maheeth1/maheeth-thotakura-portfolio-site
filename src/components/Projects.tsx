@@ -1,10 +1,10 @@
-
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaPlay, FaUser, FaCog, FaStar } from 'react-icons/fa';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const projects = [
     {
@@ -87,8 +87,47 @@ const Projects = () => {
     }
   ];
 
+  // Duplicate projects for infinite scroll
+  const duplicatedProjects = [...projects, ...projects];
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    
+    if (!container) return;
+
+    // Initialize scroll position to middle for seamless infinite scroll
+    const cardWidth = 320 + 32; // card width + gap
+    container.scrollLeft = cardWidth * projects.length;
+
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      
+      // Convert vertical scroll to horizontal
+      const scrollAmount = e.deltaY;
+      container.scrollLeft += scrollAmount;
+
+      // Handle infinite scroll
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      const currentScroll = container.scrollLeft;
+
+      if (currentScroll >= maxScroll - 10) {
+        // Reset to beginning when scrolled near end
+        container.scrollLeft = cardWidth * projects.length;
+      } else if (currentScroll <= 10) {
+        // Jump to middle when scrolled near start
+        container.scrollLeft = cardWidth * projects.length;
+      }
+    };
+
+    container.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      container.removeEventListener('wheel', handleWheel);
+    };
+  }, [projects.length]);
+
   return (
-    <section id="projects" className="py-20 bg-background">
+    <section id="projects" className="py-20 bg-background relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -102,16 +141,19 @@ const Projects = () => {
         </motion.div>
 
         {/* Desktop: Horizontal Scroll */}
-        <div className="hidden lg:block">
-          <div className="flex gap-8 overflow-x-auto pb-6 scrollbar-hide">
-            {projects.map((project, index) => (
-              <div key={project.title} className="relative flex-shrink-0">
+        <div className="hidden lg:block relative">
+          <div 
+            ref={scrollContainerRef}
+            className="flex gap-8 overflow-x-auto pb-6 scrollbar-hide"
+          >
+            {duplicatedProjects.map((project, index) => (
+              <div key={`${project.title}-${index}`} className="relative flex-shrink-0">
                 <motion.div
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  transition={{ delay: (index % projects.length) * 0.1, duration: 0.6 }}
                   viewport={{ once: true }}
-                  className="w-80 h-96"
+                  className="w-80 h-96 relative"
                   onMouseEnter={() => setHoveredProject(index)}
                   onMouseLeave={() => setHoveredProject(null)}
                   onFocus={() => setHoveredProject(index)}
@@ -123,7 +165,7 @@ const Projects = () => {
                   {/* Main Project Card */}
                   <motion.div
                     whileHover={{ y: -8 }}
-                    className="bg-card border border-border rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden h-full cursor-pointer focus:ring-2 focus:ring-primary focus:outline-none"
+                    className="bg-card border border-border rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden h-full cursor-pointer focus:ring-2 focus:ring-primary focus:outline-none relative z-10"
                   >
                     <div className="relative overflow-hidden">
                       <img
@@ -181,7 +223,7 @@ const Projects = () => {
                     </div>
                   </motion.div>
 
-                  {/* Expanded Details Card */}
+                  {/* Expanded Details Card - Fixed positioning to prevent overlap */}
                   <AnimatePresence>
                     {hoveredProject === index && (
                       <motion.div
@@ -189,7 +231,13 @@ const Projects = () => {
                         animate={{ opacity: 1, x: 0, scale: 1 }}
                         exit={{ opacity: 0, x: -20, scale: 0.95 }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="absolute top-0 left-full ml-4 w-80 h-96 bg-card border border-border rounded-2xl shadow-2xl overflow-hidden z-10"
+                        className="absolute top-0 left-full ml-4 w-80 h-96 bg-card border border-border rounded-2xl shadow-2xl overflow-hidden z-50"
+                        style={{ 
+                          position: 'fixed',
+                          transform: 'translateX(0)',
+                          left: 'auto',
+                          right: '2rem'
+                        }}
                       >
                         <div className="p-6 h-full flex flex-col">
                           <div className="flex items-center gap-3 mb-4">
