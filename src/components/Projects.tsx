@@ -6,6 +6,14 @@ import { FaGithub, FaExternalLinkAlt, FaPlay } from 'react-icons/fa';
 const Projects = () => {
   const projects = [
     {
+      title: 'OralVis Healthcare App',
+      description: 'A full-stack dental scan management portal with secure, role-based access for technicians and dentists, built with React and Node.js.',
+      tech: ['React', 'JavaScript', 'Nodejs', 'TailwindCSS', 'Express', 'Sqlite', 'role-based-acess-control'],
+      github: 'https://github.com/Maheeth1/oralvis-dentalScan-app',
+      liveDemo: 'https://oralvis-healthcare.vercel.app/',
+      image: 'https://res.cloudinary.com/deaiaaudy/image/upload/v1756878366/login-page_wuopz3.png?w=500&h=300&fit=crop&crop=center'
+    },
+    {
       title: 'FlickNest',
       description: 'React-based movie streaming app with React Player and carousels for seamless video browsing experience.',
       tech: ['React', 'JavaScript', 'React Player', 'CSS3'],
