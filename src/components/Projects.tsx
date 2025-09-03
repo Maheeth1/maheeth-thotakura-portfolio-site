@@ -68,13 +68,13 @@ export default function ProjectsSection() {
   }, [activeIndex]);
 
   return (
-    <section className="w-full py-16 bg-black text-white">
+    <section id="projects" className="w-full py-16 bg-black text-white">
       <h2 className="text-3xl font-bold text-center mb-10">My Projects</h2>
 
       {/* --- Desktop Infinite Carousel --- */}
       <div
         ref={containerRef}
-        className="hidden lg:flex px-6 gap-6 overflow-x-auto select-none no-scrollbar cursor-grab"
+        className="hidden md:flex px-6 gap-6 overflow-x-auto select-none no-scrollbar cursor-grab"
         onPointerDown={e => {
           isPointerDownRef.current = true;
           e.currentTarget.classList.add("grabbing");
@@ -103,7 +103,7 @@ export default function ProjectsSection() {
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.25 }}
-                className="w-80 h-[28rem] bg-gray-900 border border-zinc-800 rounded-2xl shadow-lg overflow-hidden flex flex-col cursor-pointer"
+                className="w-80 h-[28rem] bg-gray-900 border border-zinc-800 rounded-2xl shadow-md overflow-hidden flex flex-col cursor-pointer"
                 onClick={() =>
                   handleSetActiveIndex(isActiveHere ? null : vIdx)
                 }
@@ -135,7 +135,7 @@ export default function ProjectsSection() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-3 py-1 bg-blue-600 rounded-lg text-sm hover:bg-blue-700 transition"
+                        className="flex items-center gap-2 px-3 py-1 bg-blue-600 rounded-md text-sm hover:bg-blue-700 transition"
                         onClick={e => e.stopPropagation()}
                       >
                         <FaGithub /> GitHub
@@ -146,7 +146,7 @@ export default function ProjectsSection() {
                         href={project.liveDemo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-3 py-1 bg-green-600 rounded-lg text-sm hover:bg-green-700 transition"
+                        className="flex items-center gap-2 px-3 py-1 bg-green-600 rounded-md text-sm hover:bg-green-700 transition"
                         onClick={e => e.stopPropagation()}
                       >
                         <FaPlay /> Demo
@@ -177,11 +177,11 @@ export default function ProjectsSection() {
       </div>
 
       {/* --- Mobile Static Grid (Fallback) --- */}
-      <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
+      <div className="md:hidden grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
         {projects.map(project => (
           <div
             key={project.title}
-            className="bg-gray-900 border border-zinc-800 rounded-2xl shadow-lg overflow-hidden"
+            className="bg-gray-900 border border-zinc-800 rounded-2xl shadow-md overflow-hidden"
           >
             <img
               src={project.image}
@@ -191,6 +191,31 @@ export default function ProjectsSection() {
             <div className="p-4">
               <h3 className="text-xl font-semibold">{project.title}</h3>
               <p className="text-sm text-gray-300 mt-2">{project.description}</p>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {project.tech.map((t) => (<span key={t} className="px-2 py-1 bg-zinc-800/80 text-xs rounded-md">{t}</span>))}
+              </div>
+              <div className="flex gap-3 mt-4">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-3 py-1 bg-blue-600 rounded-md text-sm hover:bg-blue-700 transition"
+                  >
+                    <FaGithub /> GitHub
+                  </a>
+                )}
+                {project.liveDemo && (
+                  <a
+                    href={project.liveDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-3 py-1 bg-green-600 rounded-md text-sm hover:bg-green-700 transition"
+                  >
+                    <FaPlay /> Demo
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         ))}

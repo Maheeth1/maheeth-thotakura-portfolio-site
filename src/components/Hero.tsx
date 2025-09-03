@@ -75,7 +75,7 @@ const Hero = () => {
               transition={{ delay: 0.8, duration: 0.6 }}
               className="text-sm sm:text-base text-gray-600 dark:text-gray-400 italic bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-200 dark:border-gray-700 mx-4"
             >
-              "Still figuring things out — and that's okay 💬"
+              "Still figuring things out — and that's okay"
             </motion.p>
 
             {/* CTA Buttons */}
